@@ -1,0 +1,15 @@
+.label {
+    text-transform: capitalize;
+}
+
+.info-container {
+    display: flex;
+    background-color: antiquewhite;
+    padding: 10px;
+    font-family: monospace;
+    font-size: large;
+}
+
+.m-10 {
+    margin: 0 10px;
+}
