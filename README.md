@@ -37,15 +37,15 @@ Please do below for basic server/code setup:-
 
 Attached is the basic data flow for the redux.
 
-            Store
-         /           \
-Provider              CombineReducer
-   \                       \
-Container                (Reducer#1) (Reducer#2) (Reducer#3).... 
-      \                    |
-Component                (Action#1) (Action#2) (Action#3).... 
-         \             /
-               View
+>     |----------Store----------|
+>     |                         |
+> Provider                CombineReducer
+>     |                         |
+> Container                Reducer(s)
+>     |                         | 
+> Component                Action(s) 
+>     |                         |          
+>     |---->-----View--------->-|
 
 Now create the following folders which represent the basic parts of the Redux.
 
