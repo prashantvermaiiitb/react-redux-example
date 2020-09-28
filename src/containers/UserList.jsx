@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import User from "../components/User";
-
+import selectUser from "../actions/user-select";
+import "./UserList.css";
 /**
  * Class representing the list of users to be shown.
  * This will be fetched from the Store and shown.
@@ -9,25 +10,28 @@ import User from "../components/User";
 class UserList extends Component {
   /**
    * creating users from the UserList passed from the Store
+   * To re-iterate we have not passed the 'matchDispatchToProps' in the
+   * connect() method so will be using Props.dispatch for putting the action
+   * generated in the redux life-cycle.
    */
   createUsers() {
-    return this.props.users.map((user, index) => {
+    return this.props.userList.map((userId, index) => {
       return (
-        <li key={index}>
-          <User user={user} />
+        <li key={index} onClick={() => this.props.dispatch(selectUser(userId))}>
+          <User userId={userId} />
         </li>
       );
     });
   }
   /**
-   * Render method for the UserList
+   * Render method for the UserList1
    */
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
-      <div>
-        <span>User List below</span>
-        <ul>{this.createUsers()}</ul>
+      <div className="main-container">
+        <span style={{ textDecoration: "underline" }}>User List below</span>
+        <ul style={{ listStyle: "none", padding: 0 }}>{this.createUsers()}</ul>
       </div>
     );
   }
@@ -41,7 +45,7 @@ class UserList extends Component {
  */
 function getUserListFromStore(store) {
   return {
-    users: store.users,
+    userList: store.userList,
   };
 }
 
@@ -54,5 +58,8 @@ function getUserListFromStore(store) {
  * (1) point to note is : if we are passing only 1 parameter then dispatch will
  * be there in the props as the method. You can check that by un-commenting the
  * line for console.log() in render method
+ *
+ * (2) Check how the dispatch(<action-method>) is being used for passing on the
+ * data to the store.
  */
 export default connect(getUserListFromStore)(UserList);

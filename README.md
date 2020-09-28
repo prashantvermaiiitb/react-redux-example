@@ -37,30 +37,38 @@ Please do below for basic server/code setup:-
 
 Attached is the basic data flow for the redux.
 
->     |----------Store----------|
->     |                         |
-> Provider                CombineReducer
->     |                         |
-> Container                Reducer(s)
->     |                         | 
-> Component                Action(s) 
->     |                         |          
+>     |-<--------Store--<-------|
+>     |                         ^
+>     Provider             CombineReducer
+>     |                         ^
+>     Container             Reducer(s)
+>     |                         ^
+>     Component             Action(s)
+>     |                         ^
 >     |---->-----View--------->-|
 
 Now create the following folders which represent the basic parts of the Redux.
 
-1. actions 
-2. reducers
-3. store
-4. components 
-5. containers
+1. actions - represents the event that can happen in the application. These are
+   simple functions and Json will be the output of these functions.
+
+2. reducers - represents the data that will be collated as well as individual
+   reducers will put during the start of the application on the page load as
+   well as when there is an action that happens.
+
+3. store - This is the central data repo for the project will always follow
+   unidirectional data-flow.
+
+4. components - These are the JS objects or functions that will use only the
+   data, these are controlled components e.g. User
+
+5. containers - This the glue between the store and the components that needed
+   the data.
 
 Steps to observe :-
 
 1. You have to create the App, UserList and connect them to see hardcoded
    output. This will clear the concept of showing the data.
+
 2. Next will be creating the reducer and connecting to the store and showing
    that in the UI. Will be integrating the redux to create the store as well.
-3.
-
-   

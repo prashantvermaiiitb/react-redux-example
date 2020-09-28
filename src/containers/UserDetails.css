@@ -1,0 +1,12 @@
+hr {
+    height: 1px;
+    background-color: red;
+    border: none;
+}
+
+.error-msg {
+    background-color: bisque;
+    padding: 10px;
+    font-size: 20px;
+    font-family: cursive;
+}
