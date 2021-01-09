@@ -1,6 +1,10 @@
 # react-redux-example
 
-Simple example for incorporating redux as state management in a Project.
+Simple example for incorporating redux as state management in a Project using Redux.
+1. Async actions 
+2. Usage of Redux libraries like thunk or saga
+3. XHR request
+4. Ways to create or integrate the Redux framework
 
 Here we are going to show list of Users and on click on any of them will be
 displaying details below.

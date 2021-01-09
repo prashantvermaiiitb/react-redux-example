@@ -1,13 +1,12 @@
 import React from "react";
 import "./User.css";
-import path from "path";
 
 /**
  * Helper function for getting the HTML
  * @param {*} label - type of the information
  * @param {*} value - value of the information
  */
-const getUser = (index, label, value) => {
+const printUserDetail = (index, label, value) => {
   return (
     <div key={index} className="info-container">
       {label === "img" ? (
@@ -32,7 +31,7 @@ const getUsers = (user) => {
       {Object.keys(user)
         .filter((key) => key !== "id")
         .map((key, index) => {
-          return getUser(index, key, user[key]);
+          return printUserDetail(index, key, user[key]);
         })}
     </React.Fragment>
   );

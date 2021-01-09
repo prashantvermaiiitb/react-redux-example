@@ -41,25 +41,36 @@ class UserList extends Component {
  * Since we need the List of the Users present in the store we need a way to
  * inject that in the Props for the component.
  * Method for injecting state in the Props for the UserList.
+ * mapStateToProps(state, [ownProps]) => stateProps
+ * This argument is a function that returns either a plain object or another function.
  * @param {*} store - store getting created / updated with user actions
  */
-function getUserListFromStore(store) {
+function getUserListFromStore(store, ownProps) {
+  // console.log('ownProps : ',ownProps)
   return {
     userList: store.userList,
   };
 }
 
 /**
- * Since we have to connect the UserList to the store we have to connect() that
- * to the store and this will be a high order function taking UserList component
- * and returning Decorated one, along-with it will take the function where we
- * tell what part of the state to be inserted in the props.
+ * Since we have to connect the UserList to the store we used connect() and this
+ * will be a high order function taking UserList component and returning
+ * Decorated one, along-with it will take the function where we tell what part
+ * of the state to be inserted in the props.
  *
  * (1) point to note is : if we are passing only 1 parameter then dispatch will
  * be there in the props as the method. You can check that by un-commenting the
- * line for console.log() in render method
+ * line for console.log() in render() method
  *
  * (2) Check how the dispatch(<action-method>) is being used for passing on the
- * data to the store.
+ * data to the store. connect([mapStateToProps], [mapDispatchToProps],
+ * [mergeProps],[options])
+ *
+ * (3) mapDispatchToProps(dispatch, [ownProps]) => dispatchProps 
+ * 3.1 passing nothing -> dispatch will be put in props 
+ * 3.2 passing Object -> dispatch will treat each function in object as action creator and 
+ * wrap each of the functions in the Object. 
+ * 3.3 passing function -> this will be using bindActionCreator()
+ * 3.4 
  */
 export default connect(getUserListFromStore)(UserList);
