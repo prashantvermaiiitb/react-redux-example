@@ -1,0 +1,9 @@
+.comment-container {
+  text-align: center;
+  font-size: 18px;
+  font-family: cursive;
+  padding: 10px;
+  background: aliceblue;
+  border: 1px solid #cacaca;
+  height:50vh;
+}

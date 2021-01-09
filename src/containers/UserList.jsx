@@ -29,7 +29,7 @@ class UserList extends Component {
   render() {
     // console.log(this.props);
     return (
-      <div className="main-container">
+      <div className="main-container h50">
         <span style={{ textDecoration: "underline" }}>User List below</span>
         <ul style={{ listStyle: "none", padding: 0 }}>{this.createUsers()}</ul>
       </div>

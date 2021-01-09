@@ -13,8 +13,8 @@ class UserDetails extends Component {
   render() {
     // console.log(`selected user in userDetails..`, this.props.selectedUser);
     return (
-      <div>
-        <hr />
+      <div className="h50">
+        {/* <hr /> */}
         {this.props.selectedUser == null ? (
           <div>
             <div className="error-msg">

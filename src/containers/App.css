@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+}
+.left_panel {
+  width: 50%;
+}
+.right_panel {
+  width: 50%;
+}
+
+.h50 {
+  height: 50vh;
+}

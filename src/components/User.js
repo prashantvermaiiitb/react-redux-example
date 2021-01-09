@@ -10,13 +10,13 @@ const printUserDetail = (index, label, value) => {
   return (
     <div key={index} className="info-container">
       {label === "img" ? (
-        <img style={{ width: "100%" }} src={value} />
+        <img className="img"  src={value} />
       ) : (
-        <>
-          <span className="label">{label}:</span>
-          <span className="label m-10">{value}</span>
-        </>
-      )}
+          <>
+            <span className="label">{label}:</span>
+            <span className="label m-10">{value}</span>
+          </>
+        )}
     </div>
   );
 };
@@ -45,8 +45,8 @@ const User = ({ user, userId }) => {
   return typeof userId !== "undefined" ? (
     <span>User{userId}</span>
   ) : (
-    getUsers(user)
-  );
+      getUsers(user)
+    );
 };
 
 export default User;
